@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.1/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         cacheDirectory=".phpunit.cache"
+         executionOrder="depends,defects"
+         requireCoverageMetadata="true"
+         beStrictAboutCoverageMetadata="true"
+         beStrictAboutOutputDuringTests="true"
+         failOnRisky="true"
+         failOnWarning="true">
+    <php>
+        <env name="EXCHANGE_API_URL" value="./data/exchange_rates.json" force="true" />
+        <env name="BIN_API_BASE_URL" value="./data/binlist" force="true" />
+        <env name="CALCULATION_CURRENCY" value="EUR" force="true" />
+        <env name="COMMISSION_EU" value="0.01" force="true" />
+        <env name="COMMISSION_NON_EU" value="0.02" force="true" />
+    </php>
+    <testsuites>
+        <testsuite name="default">
+            <directory>Tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <source ignoreIndirectDeprecations="true" restrictNotices="true" restrictWarnings="true">
+        <include>
+            <directory>src</directory>
+        </include>
+    </source>
+</phpunit>
